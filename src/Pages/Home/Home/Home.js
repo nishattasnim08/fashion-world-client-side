@@ -3,12 +3,14 @@ import { Carousel } from 'react-bootstrap';
 import cloth1 from '../../../images/banner/cloth1.png'
 import cloth2 from '../../../images/banner/cloth2.png'
 import cloth3 from '../../../images/banner/cloth3.png'
+import Inventories from '../Inventiories/Inventories';
 import './Home.css'
 
 const Home = () => {
     return (
         <div>
-            <div>
+            {/* Banner Part */}
+            <div className='my-5'>
                 <Carousel fade>
                     <Carousel.Item>
                         <img
@@ -39,7 +41,6 @@ const Home = () => {
                             src={cloth3}
                             alt="Third slide"
                         />
-
                         <Carousel.Caption>
                             <h1>Fashion World</h1>
                             <p>Stores all kind of fashion wear for both men and women</p>
@@ -47,8 +48,9 @@ const Home = () => {
                     </Carousel.Item>
                 </Carousel>
             </div>
+            {/* Inventories Part */}
             <div className='container'>
-
+                <Inventories/>
             </div>
         </div>
     );
