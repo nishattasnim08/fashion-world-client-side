@@ -3,6 +3,7 @@ import { Carousel } from 'react-bootstrap';
 import cloth1 from '../../../images/banner/cloth1.png'
 import cloth2 from '../../../images/banner/cloth2.png'
 import cloth3 from '../../../images/banner/cloth3.png'
+import FAQ from '../FAQ/FAQ';
 import Inventories from '../Inventiories/Inventories';
 import './Home.css'
 
@@ -51,6 +52,11 @@ const Home = () => {
             {/* Inventories Part */}
             <div className='container'>
                 <Inventories/>
+            </div>
+
+            {/* FAQ Part */}
+            <div className="container">
+                <FAQ/>
             </div>
         </div>
     );

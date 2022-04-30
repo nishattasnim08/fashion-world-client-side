@@ -12,7 +12,7 @@ const Inventories = () => {
             <div className='devide'></div>
             <div className='my-5 items'>
                 <Row xs={1} md={2} className="g-5">
-                    {Array.from({ length: 6 }).map((_, idx) => (
+                    {Array.from({ length: 12 }).map((_, idx) => (
                         <Col>
                             <Card>
                                 <Card.Img variant="top" src={item1} />
@@ -30,6 +30,9 @@ const Inventories = () => {
                         </Col>
                     ))}
                 </Row>
+            </div>
+            <div className='text-center'>
+                <button className='btn btn-dark'>Manage Inventories</button>
             </div>
         </div>
     );
