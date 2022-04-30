@@ -7,6 +7,7 @@ import Home from './Pages/Home/Home/Home';
 import Inventories from './Pages/Home/Inventiories/Inventories';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
 import Login from './Authentication/Login/Login';
+import Register from './Authentication/Register/Register';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/inventory" element={<Inventories/>}></Route>
         <Route path="/manageInventories" element={<ManageInventories/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
+        <Route path="/register" element={<Register/>}></Route>
       </Routes>
       <Footer/>
     </div>
