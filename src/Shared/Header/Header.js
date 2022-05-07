@@ -1,8 +1,15 @@
 import React from 'react';
-import { Container, Nav, Navbar,} from 'react-bootstrap';
+import { Container, Nav, Navbar, } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
+import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 import './Header.css'
 
 const Header = () => {
+
+    const [user, loading, error] = useAuthState(auth);
+
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
@@ -11,15 +18,23 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#inventory">Inventories</Nav.Link>
-                            <Nav.Link href="#myItems">My Items</Nav.Link>
-                            <Nav.Link href="#blogs">Blogs</Nav.Link>
+                            <Nav.Link as={Link} to="/home">Home</Nav.Link>
+                            <Nav.Link href="/home#inventory">Inventories</Nav.Link>
+                            <Nav.Link as={Link} to="/myItems">My Items</Nav.Link>
+                            <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
                         </Nav>
-                        <Nav>
-                            <Nav.Link href="#register">Register</Nav.Link>
-                            <Nav.Link eventKey={2} href="#login">Log In</Nav.Link>
-                        </Nav>
+                        {
+                            user ?
+                                <Nav>
+                                    <Nav.Link onClick={() => signOut(auth)}>Sign Out</Nav.Link>
+                                    <Nav.Link as={Link} to="/">user.email</Nav.Link>
+                                </Nav>
+                                :
+                                <Nav>
+                                    <Nav.Link as={Link} to="/register">Register</Nav.Link>
+                                    <Nav.Link as={Link} to="/login">Log In</Nav.Link>
+                                </Nav>
+                        }
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

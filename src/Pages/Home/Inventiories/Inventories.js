@@ -5,14 +5,14 @@ import './Inventories.css'
 
 const Inventories = () => {
     return (
-        <div>
+        <div id='inventory'>
             <div>
                 <h1 className='text-center my-3'>Inventories</h1>
             </div>
             <div className='devide'></div>
             <div className='my-5 items'>
                 <Row xs={1} md={2} className="g-5">
-                    {Array.from({ length: 12 }).map((_, idx) => (
+                    {Array.from({ length: 6 }).map((_, idx) => (
                         <Col>
                             <Card>
                                 <Card.Img variant="top" src={item1} />

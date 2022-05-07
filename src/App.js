@@ -6,8 +6,9 @@ import Header from './Shared/Header/Header';
 import Home from './Pages/Home/Home/Home';
 import Inventories from './Pages/Home/Inventiories/Inventories';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
-import Login from './Authentication/Login/Login';
+import Login from './Authentication/Login/LogIn';
 import Register from './Authentication/Register/Register';
+import Error from './Shared/404/Error';
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<Home/>}></Route>
-        <Route path="/inventory" element={<Inventories/>}></Route>
+        <Route path="/home" element={<Home/>}></Route>
         <Route path="/manageInventories" element={<ManageInventories/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
+        <Route path="*" element={<Error/>}></Route>
       </Routes>
       <Footer/>
     </div>
