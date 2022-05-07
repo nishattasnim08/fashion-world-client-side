@@ -27,7 +27,7 @@ const Header = () => {
                             user ?
                                 <Nav>
                                     <Nav.Link onClick={() => signOut(auth)}>Sign Out</Nav.Link>
-                                    <Nav.Link as={Link} to="/">user.email</Nav.Link>
+                                    <Nav.Link as={Link} to="/">{user.email}</Nav.Link>
                                 </Nav>
                                 :
                                 <Nav>

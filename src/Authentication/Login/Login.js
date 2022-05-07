@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './LogIn.css'
 import { useNavigate } from 'react-router-dom';
+import SocialLogIn from '../SocialLogIn/SocialLogIn';
 
 const LogIn = () => {
 
@@ -51,6 +52,8 @@ const LogIn = () => {
                         <input type="submit" value={'Log In'} className='btn btn-dark' />
                     </div>
                 </Form>
+
+                <SocialLogIn />
             </div>
             <div className='text-center'>
                 <p>Not have an account? <span className='text-primary'>Create an account</span> </p>

@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Register.css'
 import { useNavigate } from 'react-router-dom';
+import SocialLogIn from '../SocialLogIn/SocialLogIn';
 
 const Register = () => {
 
@@ -24,7 +25,7 @@ const Register = () => {
         createUserWithEmailAndPassword(email, password);
     }
 
-    if (user){
+    if (user) {
         console.log(user);
         navigate('/');
     }
@@ -52,6 +53,7 @@ const Register = () => {
                         <input type="submit" value={'Create Account'} className='btn btn-dark' />
                     </div>
                 </Form>
+                <SocialLogIn />
             </div>
             <div className='text-center mb-4'>
             </div>
