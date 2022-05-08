@@ -10,21 +10,27 @@ import Login from './Authentication/Login/LogIn';
 import Register from './Authentication/Register/Register';
 import Error from './Shared/404/Error';
 import Blogs from './Pages/Blogs/Blogs';
+import RequireAuth from './RequireAuth';
 
 function App() {
   return (
     <div className="">
-      <Header/>
+      <Header />
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/home" element={<Home/>}></Route>
-        <Route path="/manageInventories" element={<ManageInventories/>}></Route>
-        <Route path="/blogs" element={<Blogs/>}></Route>
-        <Route path="/login" element={<Login/>}></Route>
-        <Route path="/register" element={<Register/>}></Route>
-        <Route path="*" element={<Error/>}></Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/manageInventories" element={<ManageInventories />}></Route>
+        <Route path="/blogs" element={<Blogs />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="*" element={
+          <RequireAuth>
+            <Error />
+          </RequireAuth>
+        }></Route>
+        <Route path="*" element={<Error />}></Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

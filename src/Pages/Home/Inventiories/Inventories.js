@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import item1 from '../../../images/items/item1.jpg'
 import './Inventories.css'
 
 const Inventories = () => {
+
+    const [inventories, setInvetories] = useState([]);
+
+    useEffect(()=>{
+        fetch('data.json')
+        .then(res => res.json())
+        .then(data => setInvetories(data))
+    },[])
+
     return (
         <div id='inventory'>
             <div>
@@ -12,17 +21,17 @@ const Inventories = () => {
             <div className='devide'></div>
             <div className='my-5 items'>
                 <Row xs={1} md={2} className="g-5">
-                    {Array.from({ length: 6 }).map((_, idx) => (
+                    {inventories.map((inventory) => (
                         <Col>
                             <Card>
-                                <Card.Img variant="top" src={item1} />
+                                <Card.Img variant="top" src={inventory.picture} />
                                 <Card.Body className='text-center'>
-                                    <Card.Title className=' text-center'>T-Shirt</Card.Title>
+                                    <Card.Title className=' text-center'>{inventory.name}</Card.Title>
                                     <Card.Text>
-                                        <p className=' text-center'>Comfortable for summer. Available in various colors over 50 shades</p>
-                                        <h5 className='text-start'>Price:</h5>
-                                        <h5 className='text-start'>Quantity:</h5>
-                                        <h5 className='text-start'>Supllier Name:</h5>
+                                        <p className=' text-center'>{inventory.about}</p>
+                                        <h5 className='text-start'>Price: {inventory.price} $</h5>
+                                        <h5 className='text-start'>Quantity: {inventory.quantity}</h5>
+                                        <h5 className='text-start'>Supllier Name: {inventory.sName}</h5>
                                     </Card.Text>
                                     <button className='btn btn-dark'>Update Item</button>
                                 </Card.Body>
