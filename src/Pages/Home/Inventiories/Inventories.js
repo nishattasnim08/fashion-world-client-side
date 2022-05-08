@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
-import item1 from '../../../images/items/item1.jpg'
-import './Inventories.css'
+import './Inventories.css';
 
 const Inventories = () => {
 

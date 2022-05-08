@@ -4,13 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Shared/Footer/Footer';
 import Header from './Shared/Header/Header';
 import Home from './Pages/Home/Home/Home';
-import Inventories from './Pages/Home/Inventiories/Inventories';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
 import Login from './Authentication/Login/LogIn';
 import Register from './Authentication/Register/Register';
 import Error from './Shared/404/Error';
 import Blogs from './Pages/Blogs/Blogs';
 import RequireAuth from './RequireAuth';
+import AddItem from './Pages/AddItem/AddItem';
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route path="/addItem" element={<AddItem />}></Route>
         <Route path="*" element={
           <RequireAuth>
             <Error />
