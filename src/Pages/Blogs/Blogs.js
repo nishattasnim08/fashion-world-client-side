@@ -5,7 +5,7 @@ import './Blogs.css';
 const Blogs = () => {
     return (
         <div className='container my-5 text-center'>
-            <div>
+            <div className='blog'>
                 <h2 className='my-3 pt-3 text-center'>Q1. Difference between javascript and node js</h2>
 
                 <div className='devide'></div>
@@ -64,10 +64,10 @@ const Blogs = () => {
                     </Table>
                 </div>
             </div>
-            <div>
+            <div className='blog'>
                 <h2 className='my-3 pt-3 text-center'>Q2. When should you use nodejs and when should you use mongodb?</h2>
 
-                <div className='devide w-100'></div>
+                <div className='devide'></div>
 
                 <div className='text-start'>
                     <div className='w-75 mx-auto'>
@@ -101,7 +101,7 @@ const Blogs = () => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className='blog'>
                 <h2 className='my-3 pt-3 text-center'>Q3. Differences between sql and nosql databases.</h2>
 
                 <div className='devide'></div>
@@ -150,7 +150,7 @@ const Blogs = () => {
                     </Table>
                 </div>
             </div>
-            <div>
+            <div className='blog'>
                 <h2 className='my-3 pt-3 text-center'>Q4. What is the purpose of jwt and how does it work?</h2>
 
                 <div className='devide'></div>

@@ -5,8 +5,8 @@ const Footer = () => {
     return (
         <div className='footer text-center'>
             <footer>
-                <div className='d-flex'>
-                    <div className='m-auto text-start'>
+                <div className='d-flex px-3'>
+                    <div className='m-auto pe-1 text-start'>
                         <p>Home</p>
                         <p>Inventory</p>
                         <p>My Items</p>
@@ -14,7 +14,7 @@ const Footer = () => {
                         <p>FAQ</p>
                         <p>Blogs</p>
                     </div>
-                    <div className='m-auto text-start'>
+                    <div className='m-auto px-2 text-start'>
                         <p>Privacy Policy</p>
                         <p>Terms and Conditions</p>
                         <p>Cookies</p>
