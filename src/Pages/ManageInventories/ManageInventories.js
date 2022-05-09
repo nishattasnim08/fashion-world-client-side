@@ -9,32 +9,32 @@ const ManageInventories = () => {
     const [manageInventories, setManageInvetories] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/dresses')
+        fetch('https://intense-lake-58612.herokuapp.com/dresses')
             .then(res => res.json())
             .then(data => setManageInvetories(data))
     }, [])
 
     const handleDelete = (id) => {
         const permission = window.confirm(
-          "Are you Sure? If deleted you cannot back it."
+            "Are you Sure? If deleted you cannot back it."
         );
         if (permission) {
-          fetch(`http://localhost:5000/dress/${id}`, {
-            method: "DELETE",
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              console.log(data.deletedCount);
-              if (data.deletedCount >= 0) {
-                const rest = manageInventories.filter((dress) => dress._id !== id);
-                setManageInvetories(rest);
+            fetch(`https://intense-lake-58612.herokuapp.com/dress/${id}`, {
+                method: "DELETE",
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data.deletedCount);
+                    if (data.deletedCount >= 0) {
+                        const rest = manageInventories.filter((dress) => dress._id !== id);
+                        setManageInvetories(rest);
 
-                console.log(rest);
-              }
-            });
+                        console.log(rest);
+                    }
+                });
         }
-      };
-    
+    };
+
 
     return (
         <div className='container my-5 text-center'>
@@ -65,7 +65,7 @@ const ManageInventories = () => {
                                 <td>{manageInventory.price}</td>
                                 <td>{manageInventory.quantity}</td>
                                 <td>{manageInventory.sName}</td>
-                                <th><Button  variant="dark"><i class="fa-solid fa-square-plus"></i></Button></th>
+                                <th><Button variant="dark"><i class="fa-solid fa-square-plus"></i></Button></th>
                                 <th><Button onClick={() => handleDelete(manageInventory._id)} variant="dark"><i class="fa-solid fa-trash"></i></Button></th>
                             </tr>
 

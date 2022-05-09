@@ -11,7 +11,7 @@ const MyItems = () => {
     const [myItems, setMyItems] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/mydress?email=${user.email}`)
+        fetch(`https://intense-lake-58612.herokuapp.com/mydress?email=${user.email}`)
             .then(res => res.json())
             .then(data => setMyItems(data))
     }, [])
@@ -21,7 +21,7 @@ const MyItems = () => {
             "Are you Sure? If deleted you cannot back it."
         );
         if (permission) {
-            fetch(`http://localhost:5000/dress/${id}`, {
+            fetch(`https://intense-lake-58612.herokuapp.com/dress/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

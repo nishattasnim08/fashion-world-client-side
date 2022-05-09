@@ -21,24 +21,24 @@ const AddItem = () => {
         const about = event.target.about.value;
         const picture = event.target.picture.value;
 
-        const data = {sEmail,name,price,quantity,sName,about,picture};
+        const data = { sEmail, name, price, quantity, sName, about, picture };
 
-        fetch("http://localhost:5000/dresses", {
-    	method: "POST",
-    	headers: { "Content-Type": "application/json" },
-    	body: JSON.stringify(data),
-  	})
-    	.then((response) => response.json())
-    	.then((result) => {
-      	console.log(result);
-          navigate('/manageInventories');
-    	});
+        fetch("https://intense-lake-58612.herokuapp.com/dresses", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                console.log(result);
+                navigate('/manageInventories');
+            });
 
 
         console.log(data);
 
 
-    } 
+    }
 
     return (
         <div className='container mx-auto my-5'>

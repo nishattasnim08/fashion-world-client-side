@@ -9,7 +9,7 @@ const Inventories = () => {
     const [inventories, setInvetories] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/dresses')
+        fetch('https://intense-lake-58612.herokuapp.com/dresses')
             .then(res => res.json())
             .then(data => setInvetories(data))
     }, [])
@@ -22,7 +22,7 @@ const Inventories = () => {
             <div className='devide'></div>
             <div className='my-5 items'>
                 <Row xs={1} md={2} className="g-5">
-                    {inventories.slice(0,6).map((inventory) => (
+                    {inventories.slice(0, 6).map((inventory) => (
                         <Col>
                             <Card>
                                 <Card.Img variant="top" src={inventory.picture} />

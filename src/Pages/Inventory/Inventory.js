@@ -8,7 +8,7 @@ const Inventory = () => {
     const [inventory, setInvetory] = useState({});
     const { dressId } = useParams();
     useEffect(() => {
-        fetch(`http://localhost:5000/dress/${dressId}`)
+        fetch(`https://intense-lake-58612.herokuapp.com/dress/${dressId}`)
             .then(res => res.json())
             .then(data => setInvetory(data))
     }, [])
@@ -24,7 +24,7 @@ const Inventory = () => {
 
         const newInvetory = { ...inventory, quantity: quantity };
         setInvetory(newInvetory);
-        fetch(`http://localhost:5000/dress/${inventory._id}`, {
+        fetch(`https://intense-lake-58612.herokuapp.com/dress/${inventory._id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ quantity }),
@@ -38,7 +38,7 @@ const Inventory = () => {
         let quantity = inventory.quantity - 1;
         const newInvetory = { ...inventory, quantity: quantity };
         setInvetory(newInvetory);
-        fetch(`http://localhost:5000/dress/${id}`, {
+        fetch(`https://intense-lake-58612.herokuapp.com/dress/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ quantity }),
