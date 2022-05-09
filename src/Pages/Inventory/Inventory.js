@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import './Inventories.css';
+import { Navigate, useParams } from 'react-router-dom';
+import './Inventory.css'
 
-const Inventories = () => {
+const Inventory = () => {
 
-    const navigate = useNavigate();
-    const [inventories, setInvetories] = useState([]);
-
+    const [inventory, setInvetory] = useState({});
+    const { dressId } = useParams();
     useEffect(() => {
-        fetch('http://localhost:5000/dresses')
+        fetch(`http://localhost:5000/dress/${dressId}`)
             .then(res => res.json())
-            .then(data => setInvetories(data))
+            .then(data => setInvetory(data))
     }, [])
 
     return (
-        <div id='inventory'>
-            <div>
-                <h1 className='text-center my-3'>Inventories</h1>
-            </div>
-            <div className='devide'></div>
-            <div className='my-5 items'>
-                <Row xs={1} md={2} className="g-5">
-                    {inventories.map((inventory) => (
+        <div className='container '>
+            <div id='inventory' className='my-5'>
+                <div>
+                    <h1 className='text-center my-3'>Inventory</h1>
+                </div>
+                <div className='devide'></div>
+                <div className='my-5 items'>
+                    <Row xs={1} md={2} className="g-5">
+
                         <Col>
                             <Card>
                                 <Card.Img variant="top" src={inventory.picture} />
@@ -34,18 +34,15 @@ const Inventories = () => {
                                         <h5 className='text-start'>Quantity: {inventory.quantity}</h5>
                                         <h5 className='text-start'>Supllier Name: {inventory.sName}</h5>
                                     </Card.Text>
-                                    <button onClick={() => navigate(`/inventory/${inventory._id}`)} className='btn btn-dark'>Item Details</button>
                                 </Card.Body>
                             </Card>
                         </Col>
-                    ))}
-                </Row>
-            </div>
-            <div className='text-center'>
-                <button onClick={() => navigate('/manageInventories')} className='btn btn-dark'>Manage Inventories</button>
+
+                    </Row>
+                </div>
             </div>
         </div>
     );
 };
 
-export default Inventories;
+export default Inventory;

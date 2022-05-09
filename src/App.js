@@ -11,22 +11,31 @@ import Error from './Shared/404/Error';
 import Blogs from './Pages/Blogs/Blogs';
 import RequireAuth from './RequireAuth';
 import AddItem from './Pages/AddItem/AddItem';
+import Inventory from './Pages/Inventory/Inventory';
 
 function App() {
   return (
-    <div className="">
+    <div>
       <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
-        <Route path="/manageInventories" element={<ManageInventories />}></Route>
         <Route path="/blogs" element={<Blogs />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        <Route path="/addItem" element={<AddItem />}></Route>
-        <Route path="*" element={
+        <Route path="/addItem" element={
           <RequireAuth>
-            <Error />
+            <AddItem />
+          </RequireAuth>
+        }></Route>
+        <Route path="/manageInventories" element={
+          <RequireAuth>
+            <ManageInventories />
+          </RequireAuth>
+        }></Route>
+        <Route path="/inventory/:dressId" element={
+          <RequireAuth>
+            <Inventory />
           </RequireAuth>
         }></Route>
         <Route path="*" element={<Error />}></Route>
