@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './Inventories.css';
 
 const Inventories = () => {
 
+    const navigate = useNavigate();
     const [inventories, setInvetories] = useState([]);
 
-    useEffect(()=>{
-        fetch('data.json')
-        .then(res => res.json())
-        .then(data => setInvetories(data))
-    },[])
+    useEffect(() => {
+        fetch('http://localhost:5000/dresses')
+            .then(res => res.json())
+            .then(data => setInvetories(data))
+    }, [])
 
     return (
         <div id='inventory'>
@@ -40,7 +42,7 @@ const Inventories = () => {
                 </Row>
             </div>
             <div className='text-center'>
-                <button className='btn btn-dark'>Manage Inventories</button>
+                <button onClick={() => navigate('/manageInventories')} className='btn btn-dark'>Manage Inventories</button>
             </div>
         </div>
     );

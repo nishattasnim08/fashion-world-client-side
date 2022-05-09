@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const ManageInventories = () => {
+
+    const navigate = useNavigate();
 
     const [manageInventories, setManageInvetories] = useState([]);
 
     useEffect(() => {
-        fetch('data.json')
+        fetch('http://localhost:5000/dresses')
             .then(res => res.json())
             .then(data => setManageInvetories(data))
     }, [])
@@ -35,19 +38,20 @@ const ManageInventories = () => {
                     {manageInventories.map((manageInventory) => (
                         <tbody>
                             <tr>
-                                <td>{manageInventory.id}</td>
+                                <td>{manageInventory._id}</td>
                                 <td>{manageInventory.name}</td>
                                 <td>{manageInventory.price}</td>
                                 <td>{manageInventory.quantity}</td>
                                 <td>{manageInventory.sName}</td>
-                            <th><Button variant="dark"><i class="fa-solid fa-square-plus"></i></Button></th>
-                            <th><Button variant="dark"><i class="fa-solid fa-trash"></i></Button></th>
+                                <th><Button  variant="dark"><i class="fa-solid fa-square-plus"></i></Button></th>
+                                <th><Button variant="dark"><i class="fa-solid fa-trash"></i></Button></th>
                             </tr>
-                            
+
                         </tbody>
                     ))}
 
                 </Table>
+                <Button onClick={() => navigate('/addItem')} variant="dark">Add Item</Button>
             </div>
         </div>
     );
