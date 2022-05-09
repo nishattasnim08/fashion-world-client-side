@@ -14,6 +14,28 @@ const ManageInventories = () => {
             .then(data => setManageInvetories(data))
     }, [])
 
+    const handleDelete = (id) => {
+        const permission = window.confirm(
+          "Are you Sure? If deleted you cannot back it."
+        );
+        if (permission) {
+          fetch(`http://localhost:5000/dress/${id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data.deletedCount);
+              if (data.deletedCount >= 0) {
+                const rest = manageInventories.filter((dress) => dress._id !== id);
+                setManageInvetories(rest);
+
+                console.log(rest);
+              }
+            });
+        }
+      };
+    
+
     return (
         <div className='container my-5 text-center'>
             <div>
@@ -44,7 +66,7 @@ const ManageInventories = () => {
                                 <td>{manageInventory.quantity}</td>
                                 <td>{manageInventory.sName}</td>
                                 <th><Button  variant="dark"><i class="fa-solid fa-square-plus"></i></Button></th>
-                                <th><Button variant="dark"><i class="fa-solid fa-trash"></i></Button></th>
+                                <th><Button onClick={() => handleDelete(manageInventory._id)} variant="dark"><i class="fa-solid fa-trash"></i></Button></th>
                             </tr>
 
                         </tbody>

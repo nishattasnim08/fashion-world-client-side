@@ -34,7 +34,7 @@ const Inventories = () => {
                                         <h5 className='text-start'>Quantity: {inventory.quantity}</h5>
                                         <h5 className='text-start'>Supllier Name: {inventory.sName}</h5>
                                     </Card.Text>
-                                    <button className='btn btn-dark'>Update Item</button>
+                                    <button className='btn btn-dark'>Item Details</button>
                                 </Card.Body>
                             </Card>
                         </Col>
