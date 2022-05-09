@@ -39,7 +39,7 @@ const MyItems = () => {
 
     return (
         <div className='container'>
-            <div>
+            <div className='text-center mt-5'>
                 <h1>My Items</h1>
             </div>
 
@@ -72,7 +72,7 @@ const MyItems = () => {
                     ))}
 
                 </Table>
-                <Button onClick={() => navigate('/addItem')} variant="dark">Add Item</Button>
+                <Button onClick={() => navigate('/addItem')} className="mt-4" variant="dark">Add Item</Button>
             </div>
         </div>
     );

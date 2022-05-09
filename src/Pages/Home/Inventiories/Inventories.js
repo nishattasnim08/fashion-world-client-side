@@ -22,7 +22,7 @@ const Inventories = () => {
             <div className='devide'></div>
             <div className='my-5 items'>
                 <Row xs={1} md={2} className="g-5">
-                    {inventories.map((inventory) => (
+                    {inventories.slice(0,6).map((inventory) => (
                         <Col>
                             <Card>
                                 <Card.Img variant="top" src={inventory.picture} />

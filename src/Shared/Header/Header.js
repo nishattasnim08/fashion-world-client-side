@@ -20,12 +20,12 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Nav.Link as={Link} to="/home">Home</Nav.Link>
                             <Nav.Link href="/home#inventory">Inventories</Nav.Link>
-                            <Nav.Link as={Link} to="/myItems">My Items</Nav.Link>
                             <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
                         </Nav>
                         {
                             user ?
                                 <Nav>
+                                    <Nav.Link as={Link} to="/myItems">My Items</Nav.Link>
                                     <Nav.Link onClick={() => signOut(auth)}>Sign Out</Nav.Link>
                                     <Nav.Link as={Link} to="/">{user.email}</Nav.Link>
                                 </Nav>

@@ -3,12 +3,17 @@ import { Form } from 'react-bootstrap';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './LogIn.css'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
+import Loading from '../../Loading';
 
 const LogIn = () => {
 
     const navigate = useNavigate();
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const [
         signInWithEmailAndPassword,
         user,
@@ -26,9 +31,14 @@ const LogIn = () => {
         signInWithEmailAndPassword(email, password);
     }
 
+    if (loading) {
+        return <Loading/>;
+    }
+
     if (user) {
         console.log(user);
-        navigate('/');
+
+        navigate(from, { replace: true })
     }
 
     return (
