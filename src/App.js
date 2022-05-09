@@ -12,6 +12,8 @@ import Blogs from './Pages/Blogs/Blogs';
 import RequireAuth from './RequireAuth';
 import AddItem from './Pages/AddItem/AddItem';
 import Inventory from './Pages/Inventory/Inventory';
+import MyItems from './Pages/MyItems/MyItems';
+import Loading from './Loading';
 
 function App() {
   return (
@@ -31,6 +33,11 @@ function App() {
         <Route path="/manageInventories" element={
           <RequireAuth>
             <ManageInventories />
+          </RequireAuth>
+        }></Route>
+        <Route path="/myItems" element={
+          <RequireAuth>
+            <MyItems />
           </RequireAuth>
         }></Route>
         <Route path="/inventory/:dressId" element={

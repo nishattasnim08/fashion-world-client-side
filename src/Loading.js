@@ -3,17 +3,10 @@ import { Button, Spinner } from 'react-bootstrap';
 
 const Loading = () => {
     return (
-        <div>
-            <Button variant="primary" disabled>
-                <Spinner
-                    as="span"
-                    animation="grow"
-                    size="sm"
-                    role="status"
-                    aria-hidden="true"
-                />
-                Loading...
-            </Button>
+        <div className='w-25 mx-auto mt-5'>
+            <Spinner className='mt-5' animation="grow" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>
         </div>
     );
 };

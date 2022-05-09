@@ -20,7 +20,7 @@ const Inventory = () => {
                     <h1 className='text-center my-3'>Inventory</h1>
                 </div>
                 <div className='devide'></div>
-                <div className='my-5 items'>
+                <div className='my-5 item'>
                     <Row xs={1} md={2} className="g-5">
 
                         <Col>
@@ -37,7 +37,6 @@ const Inventory = () => {
                                 </Card.Body>
                             </Card>
                         </Col>
-
                     </Row>
                 </div>
             </div>
